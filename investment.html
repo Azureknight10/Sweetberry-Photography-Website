@@ -1,0 +1,625 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment & Packages — Sweet Berry Photography</title>
+    <meta name="description"
+        content="View our maternity, newborn, milestone, family, and graduation photography packages and real pricing. Based in Avon Park, FL." />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* ── Pricing page extras ── */
+        .pricing-section {
+            padding: 72px 0;
+        }
+
+        .pricing-section+.pricing-section {
+            border-top: 1px solid var(--blush);
+        }
+
+        .section-intro {
+            max-width: 720px;
+            margin: 0 auto 56px;
+            text-align: center;
+        }
+
+        .section-intro h2 {
+            margin-bottom: 14px;
+        }
+
+        .section-intro p {
+            margin: 0 auto 10px;
+        }
+
+        .section-intro .sub-note {
+            font-size: .85rem;
+            font-style: italic;
+            color: var(--taupe);
+            margin: 0 auto;
+        }
+
+        /* Three-column tier grid */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .tier-card {
+            background: white;
+            border-radius: 12px;
+            padding: 36px 28px 32px;
+            box-shadow: 0 4px 24px var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform .3s ease, box-shadow .3s ease;
+            position: relative;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 44px var(--shadow);
+        }
+
+        .tier-card.popular {
+            border: 2px solid var(--rose);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -13px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--rose);
+            color: white;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            padding: 4px 18px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .tier-name {
+            font-family: var(--ff-sans);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--rose);
+            margin-bottom: 10px;
+        }
+
+        .tier-price {
+            font-family: var(--ff-serif);
+            font-size: 2.6rem;
+            color: var(--charcoal);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .tier-price sup {
+            font-size: 1.3rem;
+            vertical-align: super;
+        }
+
+        .tier-includes {
+            list-style: none;
+            margin: 22px 0 28px;
+            flex: 1;
+        }
+
+        .tier-includes li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--cream-mid);
+            font-size: .9rem;
+            color: var(--taupe);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.45;
+        }
+
+        .tier-includes li:last-child {
+            border-bottom: none;
+        }
+
+        .tier-includes li::before {
+            content: '✓';
+            color: var(--rose);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .tier-btn {
+            margin-top: auto;
+        }
+
+        /* Single-card packages (Grow With Me, Cake Smash, etc.) */
+        .single-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .single-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px 28px;
+            box-shadow: 0 4px 24px var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .single-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px var(--shadow);
+        }
+
+        .single-card .tier-name {
+            margin-bottom: 6px;
+        }
+
+        .single-card .tier-price {
+            font-size: 2rem;
+        }
+
+        .single-card .tier-includes {
+            margin-bottom: 20px;
+        }
+
+        /* Sticky banner notes at bottom of a section */
+        .package-note {
+            background: var(--cream-mid);
+            border-left: 3px solid var(--rose);
+            border-radius: 4px;
+            padding: 14px 20px;
+            font-size: .88rem;
+            color: var(--taupe);
+            font-style: italic;
+            margin-top: 16px;
+        }
+
+        /* Global Policy box at bottom */
+        .policy-box {
+            background: var(--charcoal);
+            color: rgba(255, 255, 255, .78);
+            border-radius: 12px;
+            padding: 40px 48px;
+            margin-top: 64px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 28px;
+        }
+
+        .policy-item strong {
+            display: block;
+            color: var(--blush);
+            font-family: var(--ff-serif);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .policy-item p {
+            font-size: .88rem;
+            color: rgba(255, 255, 255, .65);
+            max-width: none;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .tier-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .policy-box {
+                padding: 28px 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .single-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══ NAV ══ -->
+    <nav class="site-nav scrolled" id="main-nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" style="color:var(--charcoal)">Sweet Berry Photography<span>LLC · Avon
+                    Park, Florida</span></a>
+            <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link" style="color:var(--charcoal)">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="portfolio.html" class="nav-link" style="color:var(--charcoal)">Portfolio</a>
+                    <ul class="dropdown">
+                        <li><a href="portfolio-maternity.html">Maternity</a></li>
+                        <li><a href="portfolio-newborn.html">Newborn</a></li>
+                        <li><a href="portfolio-milestones.html">Milestones</a></li>
+                        <li><a href="portfolio-family.html">Family</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link" style="color:var(--charcoal)">About</a></li>
+                <li><a href="investment.html" class="nav-link" style="color:var(--rose)">Investment</a></li>
+                <li><a href="faq.html" class="nav-link" style="color:var(--charcoal)">FAQ</a></li>
+                <li><a href="testimonials.html" class="nav-link" style="color:var(--charcoal)">Testimonials</a></li>
+                <li><a href="contact.html" class="nav-link" style="color:var(--charcoal)">Contact</a></li>
+            </ul>
+            <div class="nav-cta"><a href="contact.html" class="btn btn-primary">Book Now</a></div>
+        </div>
+    </nav>
+
+    <!-- ══ PAGE HERO ══ -->
+    <div class="page-hero" style="background-image:url('images/newborn-thumb.jpg')">
+        <div class="page-hero-content">
+            <span class="eyebrow" style="color:var(--blush)">Pricing</span>
+            <h1>Investment &amp; Packages</h1>
+            <p>Transparent, tiered pricing with no hidden fees. Every session begins with a $100 non-refundable creative
+                fee paid at scheduling.</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- ══ MATERNITY ══ -->
+        <div class="pricing-section" id="maternity">
+            <div class="section-intro fade-in">
+                <span class="eyebrow">Maternity Sessions</span>
+                <h2>Celebrating Your Glow</h2>
+                <p>Best scheduled in the early stages of the third trimester. Sessions are available in our studio or on
+                    location at an agreed-upon spot (travel fees may apply).</p>
+                <p class="sub-note">💡 Book a maternity and newborn session together and save with our bundled pricing!
+                </p>
+            </div>
+
+            <div class="tier-grid">
+                <!-- Silver -->
+                <div class="tier-card fade-in">
+                    <div class="tier-name">Silver</div>
+                    <div class="tier-price"><sup>$</sup>150</div>
+                    <ul class="tier-includes">
+                        <li>Studio or on-location session</li>
+                        <li>30-minute photography session</li>
+                        <li>10 edited high-resolution digital images</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline tier-btn">Book Silver</a>
+                </div>
+
+                <!-- Gold -->
+                <div class="tier-card popular fade-in fade-in-delay-1">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="tier-name">Gold</div>
+                    <div class="tier-price"><sup>$</sup>250</div>
+                    <ul class="tier-includes">
+                        <li>Studio or on-location session</li>
+                        <li>60-minute photography session</li>
+                        <li>15 edited high-resolution digital images</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary tier-btn">Book Gold</a>
+                </div>
+
+                <!-- Platinum -->
+                <div class="tier-card fade-in fade-in-delay-2">
+                    <div class="tier-name">Platinum</div>
+                    <div class="tier-price"><sup>$</sup>350</div>
+                    <ul class="tier-includes">
+                        <li>Studio or on-location session</li>
+                        <li>90-minute photography session</li>
+                        <li>20 edited high-resolution digital images</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline tier-btn">Book Platinum</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ NEWBORN ══ -->
+        <div class="pricing-section" id="newborn">
+            <div class="section-intro fade-in">
+                <span class="eyebrow">Newborn Sessions</span>
+                <h2>Those Precious First Days</h2>
+                <p>All newborn sessions include the use of props, outfits, wraps, and more. Outside props are also
+                    warmly welcomed. Collections include parents and siblings only.</p>
+                <p class="sub-note">📅 Sessions take place <strong>Monday–Friday, 9am–12pm</strong>. Weekend sessions by
+                    request &amp; availability.<br />Best time is when baby is <strong>3–14 days old</strong>.</p>
+            </div>
+
+            <div class="tier-grid">
+                <!-- Silver -->
+                <div class="tier-card fade-in">
+                    <div class="tier-name">Silver</div>
+                    <div class="tier-price"><sup>$</sup>400</div>
+                    <ul class="tier-includes">
+                        <li>2 Wrapped poses</li>
+                        <li>2 Outfit and/or naked poses</li>
+                        <li>2 Prop poses</li>
+                        <li>10 edited high-resolution digital images</li>
+                        <li>Mini family session (parents &amp; siblings only)</li>
+                        <li>Online proofing gallery</li>
+                        <li>Print release</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline tier-btn">Book Silver</a>
+                </div>
+
+                <!-- Gold -->
+                <div class="tier-card popular fade-in fade-in-delay-1">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="tier-name">Gold</div>
+                    <div class="tier-price"><sup>$</sup>500</div>
+                    <ul class="tier-includes">
+                        <li>4 Wrapped poses</li>
+                        <li>4 Outfit and/or naked poses</li>
+                        <li>4 Prop poses</li>
+                        <li>20 edited high-resolution digital images</li>
+                        <li>Full family session (parents &amp; siblings only)</li>
+                        <li>Online proofing gallery</li>
+                        <li>Mini accordion book with 10 images</li>
+                        <li>Print release</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary tier-btn">Book Gold</a>
+                </div>
+
+                <!-- Platinum -->
+                <div class="tier-card fade-in fade-in-delay-2">
+                    <div class="tier-name">Platinum</div>
+                    <div class="tier-price"><sup>$</sup>600</div>
+                    <ul class="tier-includes">
+                        <li>6 Wrapped poses</li>
+                        <li>6 Outfit and/or naked poses</li>
+                        <li>6 Prop poses</li>
+                        <li>30 edited high-resolution digital images</li>
+                        <li>Full family session (parents &amp; siblings only)</li>
+                        <li>Online proofing gallery</li>
+                        <li>Custom USB + 20 premium 4×6 flush-mount prints</li>
+                        <li>Print release</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline tier-btn">Book Platinum</a>
+                </div>
+            </div>
+
+            <p class="package-note">
+                ✦ We try very hard to achieve the poses you'd love, however baby always leads the session — we cannot
+                guarantee any specific poses or props.
+            </p>
+        </div>
+
+        <!-- ══ GROW WITH ME ══ -->
+        <div class="pricing-section" id="milestones">
+            <div class="section-intro fade-in">
+                <span class="eyebrow">Grow With Me</span>
+                <h2>First Year Milestone Add-On</h2>
+                <p>Add our "Grow With Me" package to any newborn session and capture every stage of baby's first
+                    incredible year.</p>
+            </div>
+
+            <div class="single-grid" style="max-width:560px;margin:0 auto 16px">
+                <div class="single-card fade-in">
+                    <div class="tier-name">Grow With Me</div>
+                    <div class="tier-price"><sup>$</sup>500</div>
+                    <div
+                        style="font-size:.78rem;color:var(--taupe);text-transform:uppercase;letter-spacing:.08em;margin-bottom:18px">
+                        Paid over 6 months</div>
+                    <ul class="tier-includes">
+                        <li>3-month, 6-month, 9-month &amp; one-year sessions</li>
+                        <li>10 edited high-resolution digital images per session</li>
+                        <li>Online proofing gallery each session</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary tier-btn" style="text-align:center">Ask About This
+                        Package</a>
+                </div>
+            </div>
+            <p class="package-note" style="max-width:560px;margin:0 auto">Package balance must be paid in full by the
+                6-month session to receive the discount.</p>
+        </div>
+
+        <!-- ══ CAKE SMASH ══ -->
+        <div class="pricing-section" id="cake-smash">
+            <div class="section-intro fade-in">
+                <span class="eyebrow">Cake Smash</span>
+                <h2>Let Them Eat Cake!</h2>
+                <p>A joyful one-year celebration session your whole family will love. Additional fees apply for balloon
+                    arches and custom set builds.</p>
+            </div>
+
+            <div class="single-grid" style="max-width:560px;margin:0 auto">
+                <div class="single-card fade-in">
+                    <div class="tier-name">Cake Smash</div>
+                    <div class="tier-price"><sup>$</sup>200</div>
+                    <ul class="tier-includes">
+                        <li>1-hour studio session</li>
+                        <li>10 edited digital images</li>
+                        <li>Online proofing gallery</li>
+                        <li>Print release</li>
+                        <li>+$100 optional balloon arch</li>
+                        <li>+$100 optional special request set</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary tier-btn" style="text-align:center">Book Cake
+                        Smash</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ TWEENS & GRADS ══ -->
+        <div class="pricing-section" id="tweens-grads">
+            <div class="section-intro fade-in">
+                <span class="eyebrow">Tweens &amp; Grads</span>
+                <h2>Milestone Portraits for Every Stage</h2>
+                <p>Mini sessions, graduation portraits, and themed shoots for your growing kids and young adults.</p>
+            </div>
+
+            <div class="single-grid">
+                <!-- Mini Session -->
+                <div class="single-card fade-in">
+                    <div class="tier-name">Mini Session</div>
+                    <div class="tier-price"><sup>$</sup>175</div>
+                    <ul class="tier-includes">
+                        <li>30-minute studio session</li>
+                        <li>10 edited digital images</li>
+                        <li>Online proofing gallery</li>
+                        <li>Print release</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline tier-btn" style="text-align:center">Book Mini</a>
+                </div>
+
+                <!-- Graduation Session -->
+                <div class="single-card popular fade-in fade-in-delay-1">
+                    <div class="popular-badge">Most Requested</div>
+                    <div class="tier-name">Graduation Session</div>
+                    <div class="tier-price"><sup>$</sup>250</div>
+                    <ul class="tier-includes">
+                        <li>1-hour studio/on-location session</li>
+                        <li>2 locations included</li>
+                        <li>15 edited digital images</li>
+                        <li>Online proofing gallery</li>
+                        <li>Print release</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary tier-btn" style="text-align:center">Book
+                        Graduation</a>
+                </div>
+
+                <!-- Themed Mini -->
+                <div class="single-card fade-in fade-in-delay-2">
+                    <div class="tier-name">Themed Mini Session</div>
+                    <div class="tier-price"><sup>$</sup>200</div>
+                    <ul class="tier-includes">
+                        <li>30-minute studio/on-location session</li>
+                        <li>10 edited digital images</li>
+                        <li>Online proofing gallery</li>
+                        <li>Print release</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline tier-btn" style="text-align:center">Book Themed
+                        Mini</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ FAMILY ══ -->
+        <div class="pricing-section" id="family">
+            <div class="section-intro fade-in">
+                <span class="eyebrow">Family Sessions</span>
+                <h2>Your Family, Right Now</h2>
+                <p>For groups of up to 4 members. Extended families welcome — additional members charged at $25 each.
+                </p>
+                <p class="sub-note">Additional individual images available for $15 per image.</p>
+            </div>
+
+            <div class="single-grid" style="max-width:560px;margin:0 auto">
+                <div class="single-card fade-in">
+                    <div class="tier-name">Family Session</div>
+                    <div
+                        style="font-size:.78rem;color:var(--taupe);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">
+                        Up to 4 members</div>
+                    <div class="tier-price"><sup>$</sup>250</div>
+                    <ul class="tier-includes">
+                        <li>45-minute studio or on-location session</li>
+                        <li>15 edited digital images</li>
+                        <li>Online proofing gallery</li>
+                        <li>Print release</li>
+                        <li>+$25 per additional family member</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary tier-btn" style="text-align:center">Book Your Family
+                        Session</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══ GLOBAL POLICIES ══ -->
+        <div class="policy-box fade-in">
+            <div class="policy-item">
+                <strong>Creative Fee</strong>
+                <p>All sessions require a <strong style="color:var(--blush)">$100 non-refundable creative fee</strong>
+                    upon scheduling to reserve your date.</p>
+            </div>
+            <div class="policy-item">
+                <strong>Payment Arrangements</strong>
+                <p>Flexible payment plans may be arranged with the studio. Reach out to discuss options that work for
+                    you.</p>
+            </div>
+            <div class="policy-item">
+                <strong>Additional Images</strong>
+                <p>Extra images beyond your package are available at <strong style="color:var(--blush)">$15 per
+                        image</strong>.</p>
+            </div>
+            <div class="policy-item">
+                <strong>Travel Fees</strong>
+                <p>On-location sessions outside the local area may incur travel fees, discussed at booking.</p>
+            </div>
+        </div>
+
+        <!-- ══ CTA ══ -->
+        <div class="text-center" style="padding:72px 0 48px">
+            <span class="eyebrow">Ready to Reserve Your Spot?</span>
+            <h2 style="max-width:520px;margin:0 auto 18px">Let's Create Something Beautiful</h2>
+            <p class="mx-auto" style="margin-bottom:32px">Have questions about which package is right for you? We're
+                happy to help you choose. Reach out and let's chat.</p>
+            <a href="contact.html" class="btn btn-primary">Contact &amp; Inquire</a>
+        </div>
+
+    </div><!-- /container -->
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo">Sweet Berry Photography<span>LLC · Avon Park,
+                            Florida</span></a>
+                    <p>Award-winning maternity, newborn &amp; family photography for Central Florida families.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="footer-social-btn" aria-label="Instagram">&#128247;</a>
+                        <a href="#" class="footer-social-btn" aria-label="Facebook">&#128100;</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="investment.html">Investment</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sessions</h4>
+                    <ul>
+                        <li><a href="portfolio-maternity.html">Maternity</a></li>
+                        <li><a href="portfolio-newborn.html">Newborn</a></li>
+                        <li><a href="portfolio-milestones.html">Milestones</a></li>
+                        <li><a href="portfolio-family.html">Family</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <address>
+                        2630 West Seville Drive<br />Avon Park, FL 33825<br /><br />
+                        <a href="tel:8632577752">863-257-7752</a><br />
+                        <a href="mailto:info@sweetberryphotography.com">info@sweetberryphotography.com</a>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Sweet Berry Photography, LLC. All rights reserved.</p>
+                <p>Serving Avon Park · Sebring · Lake Placid · Highlands County · Central Florida</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
