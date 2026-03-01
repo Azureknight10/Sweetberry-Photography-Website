@@ -1,0 +1,136 @@
+{
+    "galleries": [
+        {
+            "id": "home-hero",
+            "name": "Home — Hero Image",
+            "description": "The large background photo shown in the homepage split-hero section.",
+            "page": "index.html",
+            "single_image": true,
+            "images": [
+                {
+                    "filename": "hero.jpg",
+                    "alt": "Newborn photography"
+                }
+            ]
+        },
+        {
+            "id": "home-about",
+            "name": "Home — About Photographer Photo",
+            "description": "The portrait of the photographer shown in the 'About Your Photographer' section on the homepage.",
+            "page": "index.html",
+            "single_image": true,
+            "images": [
+                {
+                    "filename": "about-photographer-new.jpg",
+                    "alt": "Sweet Berry photographer"
+                }
+            ]
+        },
+        {
+            "id": "about-photo",
+            "name": "About Page — Photographer Portrait",
+            "description": "The full-size photo in the 'My Story' section on the About page.",
+            "page": "about.html",
+            "single_image": true,
+            "images": [
+                {
+                    "filename": "about-photographer-new.jpg",
+                    "alt": "Your photographer"
+                }
+            ]
+        },
+        {
+            "id": "portfolio-maternity",
+            "name": "Portfolio — Maternity Gallery",
+            "description": "All photos shown in the Maternity portfolio gallery page.",
+            "page": "portfolio-maternity.html",
+            "single_image": false,
+            "images": [
+                {
+                    "filename": "maternity-thumb.jpg",
+                    "alt": "Maternity portrait session"
+                },
+                {
+                    "filename": "gallery-mat-1.jpg",
+                    "alt": "Maternity portrait session"
+                }
+            ]
+        },
+        {
+            "id": "portfolio-newborn",
+            "name": "Portfolio — Newborn Gallery",
+            "description": "All photos shown in the Newborn portfolio gallery page.",
+            "page": "portfolio-newborn.html",
+            "single_image": false,
+            "images": [
+                {
+                    "filename": "newborn-thumb.jpg",
+                    "alt": "Newborn portrait session"
+                },
+                {
+                    "filename": "gallery-nb-1.jpg",
+                    "alt": "Newborn portrait session"
+                }
+            ]
+        },
+        {
+            "id": "portfolio-milestones",
+            "name": "Portfolio — Milestones Gallery",
+            "description": "All photos shown in the Milestones portfolio gallery page.",
+            "page": "portfolio-milestones.html",
+            "single_image": false,
+            "images": [
+                {
+                    "filename": "milestones-thumb.jpg",
+                    "alt": "Milestone photography session"
+                },
+                {
+                    "filename": "gallery-ms-1.jpg",
+                    "alt": "Milestone photography session"
+                }
+            ]
+        },
+        {
+            "id": "portfolio-family",
+            "name": "Portfolio — Family Gallery",
+            "description": "All photos shown in the Family portfolio gallery page.",
+            "page": "portfolio-family.html",
+            "single_image": false,
+            "images": [
+                {
+                    "filename": "family-thumb.jpg",
+                    "alt": "Family portrait session"
+                },
+                {
+                    "filename": "gallery-fam-1.jpg",
+                    "alt": "Family portrait session"
+                }
+            ]
+        },
+        {
+            "id": "home-thumbnails",
+            "name": "Home — Session Preview Tiles",
+            "description": "The four session category thumbnail images on the homepage gallery grid.",
+            "page": "index.html",
+            "single_image": false,
+            "images": [
+                {
+                    "filename": "maternity-thumb.jpg",
+                    "alt": "Maternity sessions"
+                },
+                {
+                    "filename": "newborn-thumb.jpg",
+                    "alt": "Newborn sessions"
+                },
+                {
+                    "filename": "milestones-thumb.jpg",
+                    "alt": "Milestone sessions"
+                },
+                {
+                    "filename": "family-thumb.jpg",
+                    "alt": "Family sessions"
+                }
+            ]
+        }
+    ]
+}

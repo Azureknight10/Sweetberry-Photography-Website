@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login — Sweet Berry Photography</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #faf6f1 0%, #f5ece3 50%, #f0e4da 100%);
+            font-family: 'Lato', sans-serif;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 52px 48px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(100, 60, 40, .12);
+            text-align: center;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #3a3130;
+            margin-bottom: 4px;
+        }
+
+        .logo-sub {
+            font-size: .75rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #a07060;
+            margin-bottom: 36px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #3a3130;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: .85rem;
+            color: #8c7b70;
+            margin-bottom: 28px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-size: .8rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: #8c7b70;
+            margin-bottom: 8px;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid #e8ddd6;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Lato', sans-serif;
+            color: #3a3130;
+            outline: none;
+            transition: border-color .2s;
+            margin-bottom: 20px;
+        }
+
+        input[type="password"]:focus {
+            border-color: #c08060;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: #c08060;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+            font-size: .85rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background .2s;
+        }
+
+        .btn-login:hover {
+            background: #a06840;
+        }
+
+        .error {
+            background: #fdf0ee;
+            border: 1px solid #f0b0a0;
+            color: #c04030;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: .85rem;
+            margin-bottom: 18px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            font-size: .8rem;
+            color: #a07060;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .lock-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="logo-text">Sweet Berry Photography</div>
+        <div class="logo-sub">Admin Panel</div>
+        <div class="lock-icon">🔒</div>
+        <h1>Client Login</h1>
+        <p class="subtitle">This area is for the studio owner only.<br>Visitors cannot access this page.</p>
+
+        <!-- Error message injected server-side via query param -->
+        <div id="error-msg" class="error" style="display:none"></div>
+
+        <form method="POST" action="/admin/login">
+            <label for="password">Admin Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password"
+                autocomplete="current-password" required />
+            <button type="submit" class="btn-login">Sign In</button>
+        </form>
+
+        <a href="/" class="back-link">← Back to public site</a>
+    </div>
+
+    <script>
+        // Show error if URL has ?error=1
+        const params = new URLSearchParams(location.search);
+        if (params.get('error')) {
+            const el = document.getElementById('error-msg');
+            el.textContent = 'Incorrect password. Please try again.';
+            el.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+{
+    "pages": {
+        "home": {
+            "name": "Home Page",
+            "url": "index.html",
+            "fields": {
+                "hero_eyebrow": "Best of Florida 2023 · 2024 · 2025",
+                "hero_heading": "Award-Winning Maternity & Newborn Photography in Central Florida",
+                "hero_body": "Creating timeless, heirloom artwork that preserves the most tender moments of your family's story. Serving Central Florida with warmth, patience, and artistry.",
+                "hero_cta_primary": "Book Your Session",
+                "hero_cta_secondary": "View Portfolio",
+                "about_eyebrow": "About Your Photographer",
+                "about_heading": "Creating Heirlooms with Heart",
+                "about_body": "With over 20 years of experience capturing life's most precious milestones, Sweet Berry Photography is dedicated to creating images you will treasure for generations. Patience, safety, and artistry are at the heart of every session — from the delicate poses of your days-old newborn to the radiant glow of your maternity portraits.",
+                "about_body_2": "Based in Avon Park, Florida and honored as a Best of Florida 2023, 2024 & 2025 winner, we serve expecting mothers and families across Highlands County and Central Florida.",
+                "cta_heading": "Ready to Capture Your Baby's First Days?",
+                "cta_body": "Sessions book quickly — especially during peak newborn season. Reach out today to reserve your spot and start planning your perfect session."
+            }
+        },
+        "about": {
+            "name": "About Page",
+            "url": "about.html",
+            "fields": {
+                "hero_eyebrow": "The Story",
+                "hero_heading": "About Sweet Berry Photography",
+                "hero_body": "A passion for capturing life's most tender moments — from pregnancy through baby's first year and beyond.",
+                "story_eyebrow": "My Story",
+                "story_heading": "A Love for Babies That Started Long Ago",
+                "story_body_1": "My love for babies goes back as far as I can remember. From the time I was a little girl, I was always the first to hold a new baby at family gatherings, mesmerized by those tiny hands and the quiet wonder that a new life brings. That love never left me — it simply grew into a calling.",
+                "story_body_2": "Over 20 years ago, I picked up a camera and discovered that photography was the perfect way to combine my love for families with my desire to preserve the moments that pass so quickly. I've since dedicated my career to photographing maternity, newborn, and family sessions — and every single session still fills my heart with the same joy as the first.",
+                "story_body_3": "Based in Avon Park, Florida, Sweet Berry Photography has been honored as a Best of Florida Winner for 2023, 2024, and 2025 in the Maternity & Newborn category — a recognition that means the world to me because it comes from the families I serve.",
+                "story_body_4": "I am fully trained in newborn safety posing and stay current on the latest industry best practices to ensure that every baby in my studio is handled with the utmost care. When you arrive for your session, my goal is simple: I want you to feel completely at ease, so that what shows in your images is pure, authentic emotion.",
+                "cta_heading": "I'd Love to Photograph Your Family"
+            }
+        },
+        "investment": {
+            "name": "Investment Page",
+            "url": "investment.html",
+            "fields": {
+                "hero_eyebrow": "Transparent Pricing",
+                "hero_heading": "Investment & Packages",
+                "hero_body": "Heirloom photography is one of the most meaningful investments you can make for your family. Here's everything you need to know.",
+                "policy_creative_fee": "$100",
+                "policy_extra_image": "$15",
+                "policy_note": "A $100 non-refundable creative fee is required at booking to reserve your date. This fee is applied toward your session total. Payment arrangements are available — just ask.",
+                "maternity_best_time": "Best booked during early third trimester (28–34 weeks)",
+                "newborn_best_time": "Best photographed within the first 10 days of life",
+                "newborn_hours": "Monday–Friday, 9 AM–12 Noon"
+            }
+        },
+        "contact": {
+            "name": "Contact Page",
+            "url": "contact.html",
+            "fields": {
+                "hero_heading": "Let's Connect",
+                "hero_body": "We'd love to hear from you and start planning your perfect session.",
+                "address": "2630 West Seville Drive, Avon Park, FL 33825",
+                "phone": "863-257-7752",
+                "email": "info@sweetberryphotography.com",
+                "hours": "Monday–Friday, 9 AM – 5 PM"
+            }
+        },
+        "faq": {
+            "name": "FAQ Page",
+            "url": "faq.html",
+            "fields": {
+                "hero_heading": "Frequently Asked Questions",
+                "hero_body": "Everything you need to know before your session — from what to wear to how to prepare."
+            }
+        }
+    }
+}
